@@ -24,23 +24,10 @@ img {
     margin-top: 16px;
     gap: 7px;
 }
-.itemContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(476px, 1fr));
-    grid-template-rows: repeat(auto-fit, 246px);
-    gap: 24px;
-    height: 100%;
-    width: 100%;
-    margin-top: 16px;
-    /* margin: 16px; */
-}
 .itemName {
     font-weight: 600;
     font-size: 16px;
     width: 100%;
-}
-.itemContent {
-    width: 50%;
 }
 .itemsubjGrade {
     display: flex;

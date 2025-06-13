@@ -50,7 +50,7 @@ const Announcement: React.FC<{ Announcer: string, Description: string, ID: numbe
     return (
         <Container>
             <div>
-                <div className="AnnouncementContainer">
+                <div className="AnnouncementContainer" style={{backgroundColor : isRead ? "white" : "#FFFFEE" }}>
                     <div className="AnnouncerName"> 
                         <span> {Announcer} </span>
                         <img className="acceptImg" src={`./${isRead ? "accept" : "minus"}.png`} />

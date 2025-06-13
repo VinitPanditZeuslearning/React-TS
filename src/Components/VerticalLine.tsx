@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const VerLin = styled.div`
 size: 20px;
-border-left: 1px solid #000000;
+border-left: 1px solid #0000001F;
 `
 
 export default function VerticalLine({ size = 10 } : { size ?: number} ) {

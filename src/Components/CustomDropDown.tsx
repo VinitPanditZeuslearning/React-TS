@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import '../dashboard.css'
+import '../dashboard.scss'
 const Container = styled.div`
 width: 100%;
 font-weight: bolder;

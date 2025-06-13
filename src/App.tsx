@@ -4,7 +4,7 @@ import Login from './pages/Login'
 import DashBoard from './pages/DashBoard'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-import './index.css'
+import './index.scss'
 function App() {
   return (
     <Router>
