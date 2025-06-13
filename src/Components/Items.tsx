@@ -93,7 +93,7 @@ b {
 
 
 const Items: React.FC<ClassData> = ({ img, topicName, Subject, Grade, units, lessons, topics, recentClass, isFav, iconsObj }) => {
-    const dateData = `${recentClass.Date[0].getDate()}-${recentClass.Date[0].getMonth()}-${recentClass.Date[0].getFullYear()} - ${recentClass.Date[1].getDate()}-${recentClass.Date[1].getMonth()}-${recentClass.Date[1].getFullYear()} `
+    const dateData = `${recentClass.Date[0].getDate()}-${recentClass.Date[0].getMonth()}-${recentClass.Date[0].getFullYear()} - ${recentClass.Date[1].getDate()}-${recentClass.Date[1].getMonth()}-${recentClass.Date[1].getFullYear()}`
 
     const grade: number = Math.min(...Grade);
     const plus: string = Grade.length > 1 ? `+ ${Grade.length - 1}` : "";

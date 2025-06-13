@@ -47,7 +47,7 @@ export default function DashBoard() {
             img: './static/img2.svg',
             topicName: "Displacement, Velocity and Speed",
             Subject: "Physics 2",
-            Grade: [6],
+            Grade: [6, 7, 8, 9],
             units: 2,
             lessons: 15,
             topics: 24,

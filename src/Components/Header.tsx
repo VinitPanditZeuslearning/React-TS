@@ -152,15 +152,14 @@ export default function Header() {
                     <CustomDropDown mainName='DASHBOARD' ID={1}></CustomDropDown>
                     <CustomDropDown mainName='CONTENT' options={["COURSE CATALOG", "SOMETHING ELSE"]} ID={2}></CustomDropDown>
                     <CustomDropDown mainName='USERS' options={["COURSE CATALOG", "SOMETHING ELSE"]} ID={3}></CustomDropDown>
-                    <CustomDropDown mainName='REPORT' ID={4}></CustomDropDown>
-                    <CustomDropDown mainName='REPORT' ID={5}></CustomDropDown>
-                    <CustomDropDown mainName='ADMIN' ID={6}></CustomDropDown>
+                    <CustomDropDown mainName='REPORTS' ID={4}></CustomDropDown>
+                    <CustomDropDown mainName='ADMIN' ID={5}></CustomDropDown>
                 </div>
                 <ul className="navbar">
                     <li className='menuItems'> DASHBOARD</li>
                     <li className='menuItems'> CONTENT</li>
                     <li className='menuItems'> USERS</li>
-                    <li className='menuItems'> REPOSRTS</li>
+                    <li className='menuItems'> REPORTS</li>
                     <li className='menuItems'> ADMIN</li>
                     <li>
                         <img ref={alertImgRef} className="alertsImg" src="./static/alerts.svg" alt=""  onClick={()=> { openAlert()}}/>
