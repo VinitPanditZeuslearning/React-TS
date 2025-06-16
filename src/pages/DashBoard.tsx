@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Items from '../Components/Items'
 import '../dashboard.scss'
 import type { ClassData } from '../types';
@@ -6,21 +6,6 @@ export default function DashBoard() {
     const selctorRef = useRef<HTMLDivElement>(null);
     // true --> left, false --> right
     const [ selectorLeft, setSelectorLeft ]  = useState<boolean>( true )
-    function getSelected(e: React.SyntheticEvent) {
-
-        // if (!selctorRef.current) {
-        //     return;
-        // }
-        // const target = e.target as HTMLElement;
-        // if (target.id == 'classes') {
-        //     selctorRef.current.classList.remove('selectorLeft')
-        //     selctorRef.current.classList.add('selectorRight')
-        // }
-        // else {
-        //     selctorRef.current.classList.remove('selectorRight')
-        //     selctorRef.current.classList.add('selectorLeft')
-        // }
-    }
     const itemsData : Array<ClassData> = [
         {
             img: './static/img1.svg',
