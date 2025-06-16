@@ -19,6 +19,7 @@ width: 100%;
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 .Description {
     font-size: 14px;
@@ -41,24 +42,26 @@ width: 100%;
 }
 .acceptImg {
     height: 15px;
+    position: absolute;
+    right: -10px;
+    top: 10px;
 }
 `
 
 const Announcement: React.FC<{ Announcer: string, Description: string, ID: number, Date: Date, isRead?: boolean, Attachments: number }> = ({ Announcer, Description, Date, isRead, Attachments }) => {
 
-
     return (
         <Container>
             <div>
-                <div className="AnnouncementContainer" style={{backgroundColor : isRead ? "white" : "#FFFFEE" }}>
-                    <div className="AnnouncerName"> 
+                <div className="AnnouncementContainer" style={{ backgroundColor: isRead ? "white" : "#FFFFEE" }}>
+                    <div className="AnnouncerName">
                         <span> {Announcer} </span>
                         <img className="acceptImg" src={`./${isRead ? "accept" : "minus"}.png`} />
                     </div>
                     <span className="Description"> {Description}</span>
                     <div className="attachementNdate">
-                        <span className="Attachments"> 
-                            <img className="attachedImg" src="./attached.png" /> {Attachments + " files are attached"}
+                        <span className="Attachments">
+                            <img className="attachedImg" src="./attached.png" style={{ display: Attachments > 0 ? "inline" : "none" }} /> {Attachments > 0 ? `${Attachments}` + " files are attached" : ""}
                         </span>
                         <span className="date"> {`${Date.getDate()}-${Date.getMonth()}-${Date.getFullYear()} at ${((Date.getHours() - 1) % 12) + 1}:${Date.getMinutes()} ` + (Date.getHours() > 12 ? "PM" : "AM")}</span>
                     </div>

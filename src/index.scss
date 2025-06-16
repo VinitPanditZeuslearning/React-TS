@@ -267,6 +267,7 @@ input[type="radio"] {
   max-height: 0px;
   transition: all 0.3s;
   overflow: hidden;
+  min-width: 315px;
 }
 
 .AlertWrapperOpen {
@@ -277,4 +278,3 @@ input[type="radio"] {
   max-height: 300px;
   overflow-y: scroll;
 }
-

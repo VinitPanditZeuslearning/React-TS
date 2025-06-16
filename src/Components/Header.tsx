@@ -3,15 +3,18 @@ import '../dashboard.scss'
 import CustomDropDown from './CustomDropDown';
 
 import Announcement from "./Anouncement";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import VerticalLine from './VerticalLine';
 
 export default function Header() {
+    const location = useLocation();
     const menuBarRef = useRef<HTMLDivElement>(null);
     const hemBurfRef = useRef<HTMLLIElement>(null);
     const announcementbarContainerRef = useRef<HTMLDivElement>(null);
     const announcementsImgRef = useRef<HTMLImageElement>(null);
-
+    const [annoucementCount, setannoucementCount] = useState<number>( 5 );
+    const [alertCount, setalertCount] = useState<number>( 3 );
     const alertImgRef = useRef<HTMLImageElement>(null);
     const alertWrapper = useRef<HTMLDivElement>(null);
 
@@ -29,10 +32,11 @@ export default function Header() {
     }
 
     function openAlert() {
-        if( !alertWrapper.current ) {
+        if( !alertWrapper.current || !alertImgRef.current ) {
             return;
         }
-        alertWrapper.current.classList.toggle('AlertWrapperOpen')
+        alertWrapper.current.classList.toggle('AlertWrapperOpen');
+        alertImgRef.current.classList.toggle('svgSelected')
 
     }
 
@@ -41,7 +45,7 @@ export default function Header() {
             Announcer: 'Wilson Kumar',
             Description: 'No Classes Will be held on 21s Nov',
             ID: 1,
-            Attachments: 2,
+            Attachments: 0,
             Date: new Date("2018-09-15"),
             isRead: true
         },
@@ -49,7 +53,7 @@ export default function Header() {
             Announcer: 'Samson White',
             Description: 'Guest lecture on Geometry on 20th September',
             ID: 2,
-            Attachments: 2,
+            Attachments: 0,
             Date: new Date("2018-09-15"),
             isRead: true
         },
@@ -63,21 +67,21 @@ export default function Header() {
         {
             Announcer: 'Wilson Kumar',
             Description: 'No classes will be held on 25th Dec',
-            ID: 3,
+            ID: 4,
             Attachments: 2,
             Date: new Date("2018-09-15")
         },
         {
             Announcer: 'Wilson Kumar',
             Description: 'Additional course materials available on request',
-            ID: 3,
+            ID: 5,
             Attachments: 2,
             Date: new Date("2018-09-15")
         },
         {
             Announcer: 'Wilson Kumar',
             Description: 'No classes will be held on 25th Dec',
-            ID: 3,
+            ID: 6,
             Attachments: 2,
             Date: new Date("2018-09-15")
         }
@@ -148,14 +152,14 @@ export default function Header() {
                 <div>
                     <img id="logo" src="./static/logo_used_in_header.svg" alt="" />
                 </div>
-                <div ref={menuBarRef} className='menuBar' id='menuBar' >
+                <div ref={menuBarRef} className='menuBar' id='menuBar' style={ { display: location.pathname == '/Dashboard' ? '' : 'none' } }>
                     <CustomDropDown mainName='DASHBOARD' ID={1}></CustomDropDown>
                     <CustomDropDown mainName='CONTENT' options={["COURSE CATALOG", "SOMETHING ELSE"]} ID={2}></CustomDropDown>
                     <CustomDropDown mainName='USERS' options={["COURSE CATALOG", "SOMETHING ELSE"]} ID={3}></CustomDropDown>
                     <CustomDropDown mainName='REPORTS' ID={4}></CustomDropDown>
                     <CustomDropDown mainName='ADMIN' ID={5}></CustomDropDown>
                 </div>
-                <ul className="navbar">
+                <ul className="navbar"  style={ { display: location.pathname == '/Dashboard' ? '' : 'none' } }>
                     <li className='menuItems'> DASHBOARD</li>
                     <li className='menuItems'> CONTENT</li>
                     <li className='menuItems'> USERS</li>
@@ -163,7 +167,7 @@ export default function Header() {
                     <li className='menuItems'> ADMIN</li>
                     <li>
                         <img ref={alertImgRef} className="alertsImg" src="./static/alerts.svg" alt=""  onClick={()=> { openAlert()}}/>
-
+                        <div className='count'  onClick={() => {setalertCount( alertCount + 1 )}}> {alertCount} </div>
                         <div className='AlertWrapper' ref={alertWrapper}>
                             <div className='AlertContainer'>
                                 {alertData.map((elm, ind) => (
@@ -175,10 +179,9 @@ export default function Header() {
 
                         </div>
                     </li>
-                    <li>
-                        <img ref={announcementsImgRef} className="announcementsImg" src="./static/announcements.svg" alt="" onClick={() => { openAnnoucement() }}>
-
-                        </img>
+                    <li >
+                        <img ref={announcementsImgRef} className="announcementsImg" src="./static/announcements.svg" alt="" onClick={() => { openAnnoucement() }}/>
+                        <div className='count'  onClick={() => {setannoucementCount(annoucementCount + 1)}}>{annoucementCount}</div>
                         <div className='announcementsBarWrapper' ref={announcementbarContainerRef} >
                             <div className='announcementsBar' >
                                 {
